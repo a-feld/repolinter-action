@@ -22,6 +22,4 @@ jobs:
         with:
           config_url: https://raw.githubusercontent.com/newrelic/.github/main/repolinter-rulesets/community-plus.yml
           repository: a-feld/newrelic-python-agent
-          username: a-feld
           output_type: issue
-          token: ${{ secrets.ISSUE_TOKEN }}
