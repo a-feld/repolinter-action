@@ -1,0 +1,24 @@
+name: Repolinter Action Python Agent
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # Run daily
+    - cron: '24 21 * * *'
+
+jobs:
+  repolint:
+    name: Run Repolinter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v2
+        with:
+          repository: a-feld/newrelic-python-agent
+      - name: Run Repolinter
+        uses: newrelic/repolinter-action@v1
+        with:
+          config_url: https://raw.githubusercontent.com/newrelic/.github/main/repolinter-rulesets/community-plus.yml
+          output_type: issue
